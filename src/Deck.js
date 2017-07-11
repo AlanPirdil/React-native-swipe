@@ -35,6 +35,12 @@ class Deck extends Component {
     UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.data !== this.props.data) {
+      this.setState({ index: 0})
+    }
+  }
+
   componentWillUpdate() {
     LayoutAnimation.spring();
   }
